@@ -1,10 +1,12 @@
 # fsdb
 
-fsdb is an un-opinionated library that lets you use the filesystem as an awesome document database. It supports:
+fsdb is an un-opinionated library that lets you use the filesystem as an awesome document/graph database. It supports:
 
 - Directories as nodes with an `index` file
 - Common keys for all nodes in a directory with a `common` file
+- Files in folders get linked as children
 - Relationships (*in progress*)(by referencing other files and transparently linking them in memory)
+
 
 ## Example
 
@@ -94,7 +96,7 @@ fsdb(dataDir, config) -> Promise
 
 - `dataDir` the directory to parse
 - `config` an object
-  - `commonProps` (*default: common*) the filename that contains common properties, for each directory
+  - `commonProps` (*default: "common"*) the filename that contains common properties, for each directory
 
 ## Cool Features
 
