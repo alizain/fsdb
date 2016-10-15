@@ -1,0 +1,5 @@
+Ignore ES6 source files
+src
+
+Include lib folder
+!lib
