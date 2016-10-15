@@ -1,6 +1,6 @@
 {
   "name": "@alizain/fsdb",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "filesystem-as-a-database",
   "main": "lib/index.js",
   "dependencies": {

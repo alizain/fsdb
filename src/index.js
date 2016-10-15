@@ -14,7 +14,7 @@ export default function fsdb(dataDir, config) {
     .then(parseData(parsers))
     .then(mergeByName())
     .then(mergeIndex())
-    .then(commonFrom(config.commonProps))
+    .then(commonFrom(config.commonFile))
     .then(build())
     .then(flattenTree())
     .then(data => sortby(data, "slug", "path"))

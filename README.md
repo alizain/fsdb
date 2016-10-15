@@ -96,7 +96,7 @@ fsdb(dataDir, config) -> Promise
 
 - `dataDir` the directory to parse
 - `config` an object
-  - `commonProps` (*default: "common"*) the filename that contains common properties, for each directory
+  - `commonFile` (*default: "common"*) the filename that contains common properties, for each directory
 
 ## Cool Features
 
@@ -138,7 +138,7 @@ author: Muju
 
 All children of a node can inherit properties from a common file. This is especially useful when all the files in a directory are related in some way.
 
-By default, common properties are extracted from any file with the name `common`. This can be configured in `config.commonProps`.
+By default, common properties are extracted from any file with the name `common`. This can be configured in `config.commonFile`.
 
 **content/shasekishu/common.yaml**
 ``` yaml
