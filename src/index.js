@@ -11,11 +11,17 @@ import parsers from "./parsers"
 
 export default function fsdb(dataDir, config) {
   return init(dataDir)()
-    .then(parseData(parsers))
-    .then(mergeByName())
-    .then(mergeIndex())
-    .then(commonFrom(config.commonFile))
-    .then(build())
-    .then(flattenTree())
-    .then(data => sortby(data, "slug", "path"))
+    .then((root) => {
+      if (root.children.length === 0) {
+        return []
+      }
+      return Promise.resolve(root)
+        .then(parseData(parsers))
+        .then(mergeByName())
+        .then(mergeIndex())
+        .then(commonFrom(config.commonFile))
+        .then(build())
+        .then(flattenTree())
+        .then(data => sortby(data, "slug", "path"))
+    })
 }
