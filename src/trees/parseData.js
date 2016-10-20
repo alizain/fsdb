@@ -10,7 +10,9 @@ export default function(parsers) {
     if (node.isFile) {
       let raw = await fs.readFileAsync(node.pathStr, { encoding: "utf8" })
       let parsed = parsers[node.path.ext.replace(".", "")](raw)
-      node.data = mergeWithObj(node.data, parsed, false)
+      if (parsed) {
+        node.data = mergeWithObj(node.data, parsed, false)
+      }
     }
     return node
   })
