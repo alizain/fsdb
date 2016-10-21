@@ -1,11 +1,12 @@
 {
   "name": "@alizain/fsdb",
-  "version": "0.1.12",
+  "version": "0.2.4",
   "description": "filesystem-as-a-database",
   "main": "lib/index.js",
   "dependencies": {
     "babel-polyfill": "^6.13.0",
     "bluebird": "^3.4.6",
+    "debug": "^2.2.0",
     "js-yaml": "^3.6.1",
     "lodash.get": "^4.4.2",
     "lodash.sortby": "^4.7.0",
