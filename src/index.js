@@ -1,4 +1,3 @@
-import "babel-polyfill"
 import sortby from "lodash.sortby"
 import parseData from "./trees/parseData"
 import mergeByName from "./trees/mergeByName"
