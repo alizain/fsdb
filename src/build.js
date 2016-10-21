@@ -1,11 +1,15 @@
+import debug from "debug"
+
+const log = debug("build")
 const META_KEY = "_"
 
 export default function() {
 
   return function build(node, parent, root) {
 
-    delete node[META_KEY]
+    delete node.data[META_KEY]
     let self = Object.create(Object.prototype, node.data)
+    log(`Created data object for ${node.path.base}`)
     let meta = {}
 
     if (parent) {
@@ -24,6 +28,7 @@ export default function() {
     if (node.children) {
       let children = node.children.map(obj => build(obj, self, root))
       meta.children = Object.freeze(children)
+      log(`Created children for ${node.path.base}`)
     }
 
     Object.defineProperty(
@@ -32,6 +37,7 @@ export default function() {
       { value: Object.freeze(meta) }
     )
 
+    log(`Built ${node.path.base}`)
     return self
 
   }

@@ -1,6 +1,9 @@
 import mapRecurse from "../helpers/mapRecurse"
 import { mergeWithProps } from "../helpers/mergeProps"
 import sortChildren from "../helpers/sortChildren"
+import debug from "debug"
+
+const log = debug("mergeIndex")
 
 export default function() {
 
@@ -12,6 +15,7 @@ export default function() {
 
     node.children = node.children.filter((obj) => {
       if (obj.isFile && obj.path.name === "index") {
+        log(`Merging index file for ${node.path.base} dir`)
         node.data = mergeWithProps(node.data, obj.data, false)
         node.sources.push(obj.pathStr)
         node.isFile = true

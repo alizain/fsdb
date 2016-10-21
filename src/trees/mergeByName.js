@@ -1,6 +1,9 @@
 import mapRecurse from "../helpers/mapRecurse"
 import { mergeWithProps } from "../helpers/mergeProps"
 import sortChildren from "../helpers/sortChildren"
+import debug from "debug"
+
+const log = debug("mergeByName")
 
 export default function() {
 
@@ -17,6 +20,7 @@ export default function() {
     files.forEach((obj) => {
       let match = dirs.find(d => d.path.name === obj.path.name)
       if (match) {
+        log(`Merging named file for ${match.path.base} dir`)
         match.data = mergeWithProps(match.data, obj.data)
         match.sources.push(obj.pathStr)
         match.isFile = true

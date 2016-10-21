@@ -1,6 +1,10 @@
+import { basename } from "path"
 import mapRecurse from "../helpers/mapRecurse"
 import { mergeWithProps } from "../helpers/mergeProps"
 import sortChildren from "../helpers/sortChildren"
+import debug from "debug"
+
+const log = debug("commonFrom")
 
 export default function(name) {
 
@@ -21,6 +25,7 @@ export default function(name) {
     })
 
     inheritance.forEach((obj) => {
+      log(`Inherting props for ${basename(obj.path.dir)} dir`)
       node.children.forEach((child) => {
         child.data = mergeWithProps(child.data, obj.data, false)
         child.sources.push(obj.pathStr)
